@@ -11,8 +11,17 @@ public class UserCommandController {
     @PostMapping(path="/users")
     public UserResponse createNewUser(
             @RequestBody UserRequest userRequest) {
+        // Request
         System.out.println(userRequest);
-        return new UserResponse();
+        // Validate requests
+        // Do sth :: TODO Next
+        // Generate Response
+        UserResponse response = new UserResponse();
+        response.setFirst_name(userRequest.getFirst_name());
+        response.setLast_name(userRequest.getLast_name());
+        response.setAge(userRequest.getAge());
+        response.setId(100);
+        return response;
     }
 
 }

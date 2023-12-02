@@ -2,9 +2,18 @@ package com.example.day01;
 
 public class UserResponse {
 
+    private int id;
     private String last_name;
     private String first_name;
     private int age;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getLast_name() {
         return last_name;
