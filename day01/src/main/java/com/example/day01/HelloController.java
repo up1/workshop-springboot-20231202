@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello Spring Boot";
+    public HelloResponse sayHello() {
+        HelloResponse response = new HelloResponse();
+        response.setMessage("Hello Spring Boot");
+        return  response;
     }
 
 }
