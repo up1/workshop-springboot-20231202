@@ -1,11 +1,26 @@
 package com.example.day01;
 
+import java.util.Objects;
+
 public class UserResponse {
 
     private int id;
     private String first_name;
     private String last_name;
     private int age;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserResponse response = (UserResponse) o;
+        return id == response.id && age == response.age && Objects.equals(first_name, response.first_name) && Objects.equals(last_name, response.last_name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, first_name, last_name, age);
+    }
 
     public int getId() {
         return id;
