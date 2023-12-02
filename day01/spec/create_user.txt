@@ -1,0 +1,16 @@
+POST /user
+Request body
+{
+    "first_name": "Somkiat",
+    "last_name": "Pui",
+    "age": 40
+}
+
+Response = 200
+{
+    "id": 1,
+    "first_name": "Somkiat",
+    "last_name": "Pui",
+    "age": 40
+}
+
