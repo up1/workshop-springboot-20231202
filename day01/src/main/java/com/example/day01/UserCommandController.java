@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserCommandController {
 
-    @PostMapping("/users")
+    @PostMapping(path="/users")
     public UserResponse createNewUser(
             @RequestBody UserRequest userRequest) {
         System.out.println(userRequest);
