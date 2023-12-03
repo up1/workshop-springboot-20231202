@@ -19,11 +19,24 @@ class UserRepositoryTest {
         // Save
         MyUser myUser = new MyUser();
         myUser.setFirstName("demo name");
-        myUser = userRepository.save(myUser);
+        userRepository.save(myUser);
 
         // Find
         Optional<MyUser> result = userRepository.findByFirstName("demo name");
+        assertTrue(result.isPresent());
         assertEquals("demo name", result.get().getFirstName());
+    }
+
+    @Test
+    public void findNotExistingUser() {
+        // Save
+        MyUser myUser = new MyUser();
+        myUser.setFirstName("demo name");
+        userRepository.save(myUser);
+
+        // Find
+        Optional<MyUser> result = userRepository.findByFirstName("demo");
+        assertFalse(result.isPresent());
     }
 
     @Test
