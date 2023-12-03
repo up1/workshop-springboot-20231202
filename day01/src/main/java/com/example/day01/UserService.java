@@ -3,6 +3,8 @@ package com.example.day01;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -10,18 +12,14 @@ public class UserService {
     private UserRepository userRepository;
 
     private boolean isExistingUserInDb(String firstName) {
-        // TODO :: check from database
-        return "dummy".equals(firstName);
+        Optional<MyUser> result = userRepository.findByFirstName(firstName);
+        return result.isPresent();
     }
 
     public UserResponse createNewUser(UserRequest userRequest) {
-        // Process ?
         if(isExistingUserInDb(userRequest.getFirst_name())) {
             throw new UserExistedException("User existed");
         }
-
-        // Ok
-        // TODO :: Create a new User into database
         MyUser newUser = new MyUser();
         newUser.setFirstName(userRequest.getFirst_name());
         newUser.setLastName(userRequest.getLast_name());
