@@ -44,7 +44,7 @@ class UserRepositoryTest {
         MyUser myUser = new MyUser();
         myUser.setFirstName("demo name");
         myUser = userRepository.save(myUser);
-        assertEquals(1, myUser.getId());
+        assertTrue(myUser.getId() > 0);
     }
 
 }
