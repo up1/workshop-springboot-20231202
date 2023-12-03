@@ -1,6 +1,6 @@
-package com.example.day01;
+package com.example.day01.payments;
 
-public class ErrorMessage{
+public class HelloResponse{
 	private String message;
 
 	public void setMessage(String message){

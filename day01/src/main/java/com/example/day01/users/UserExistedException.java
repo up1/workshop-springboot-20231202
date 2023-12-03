@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.users;
 
 public class UserExistedException extends RuntimeException {
     public UserExistedException(String message) {

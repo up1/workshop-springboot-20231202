@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.payments;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
