@@ -2,6 +2,7 @@ package com.example.day01;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class UserService {
         return result.isPresent();
     }
 
+    @Transactional
     public UserResponse createNewUser(UserRequest userRequest) {
         if(isExistingUserInDb(userRequest.getFirst_name())) {
             throw new UserExistedException("User existed");
@@ -25,6 +27,8 @@ public class UserService {
         newUser.setLastName(userRequest.getLast_name());
         newUser.setAge(userRequest.getAge());
         newUser = userRepository.save(newUser);
+
+        userRepository.deleteAll();
 
         // Return response
         UserResponse response = new UserResponse();
