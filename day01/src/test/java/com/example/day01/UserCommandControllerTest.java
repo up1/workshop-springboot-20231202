@@ -30,11 +30,11 @@ class UserCommandControllerTest {
         request.setFirst_name("Somkiat");
         UserResponse response
                 = restTemplate.postForObject("/users", request, UserResponse.class);
-        assertEquals(100, response.getId());
+        assertEquals(1, response.getId());
         assertEquals("Somkiat", response.getFirst_name());
         // XXX
         UserResponse expected = new UserResponse();
-        expected.setId(100);
+        expected.setId(1);
         expected.setFirst_name("Somkiat");
         assertEquals(expected, response);
     }
