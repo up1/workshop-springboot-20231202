@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class UserControllerAdvice {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleFirstCase(Exception e) {
-        ResponseEntity<String> response
-                = new ResponseEntity<>("Error", HttpStatusCode.valueOf(202));
+    @ExceptionHandler(UserExistedException.class)
+    public ResponseEntity<ErrorMessage> handleFirstCase(UserExistedException e) {
+        ErrorMessage errorMessage = new ErrorMessage();
+        errorMessage.setMessage(e.getMessage());
+        ResponseEntity<ErrorMessage> response
+                = new ResponseEntity<>(errorMessage,
+                HttpStatusCode.valueOf(202));
         return response;
     }
 

@@ -13,7 +13,7 @@ public class UserService {
     public UserResponse createNewUser(UserRequest userRequest) {
         // Process ?
         if(isExistingUserInDb(userRequest.getFirst_name())) {
-            throw new RuntimeException("User existed");
+            throw new UserExistedException("User existed");
         }
 
         // Ok
