@@ -1,5 +1,6 @@
 package com.example.day01;
 
+import org.hibernate.engine.spi.SessionDelegatorBaseImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +15,16 @@ class UserCommandControllerTest {
     @Autowired
     TestRestTemplate restTemplate;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
     void createNewUserNewExistingUser() {
+        // Mock data for dummy user in database
+        MyUser myUser = new MyUser();
+        myUser.setFirstName("dummy");
+        userRepository.save(myUser);
+
         UserRequest request = new UserRequest();
         request.setFirst_name("dummy");
         ResponseEntity<ErrorMessage> response
