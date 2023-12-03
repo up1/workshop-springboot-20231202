@@ -1,14 +1,11 @@
 package com.example.day01;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tbl_users")
 public class MyUser {
-    @Id
+    @Id @GeneratedValue()
     private int id;
     @Column(name = "fname")
     private String firstName;
