@@ -28,7 +28,7 @@ public class UserService {
         newUser.setAge(userRequest.getAge());
         newUser = userRepository.save(newUser);
 
-        userRepository.deleteAll();
+//        userRepository.deleteAll();
 
         // Return response
         UserResponse response = new UserResponse();
